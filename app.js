@@ -159,6 +159,10 @@ function gameWinner() {
         gameOver = true;
         alert("Boohoo! You lose!");
     }
+    else if (tile0.mark!="empty" && tile1.mark!="empty" && tile2.mark!="empty" && tile3.mark!="empty" && tile4.mark!="empty" && tile5.mark!="empty" && tile6.mark!="empty" && tile7.mark!="empty" && tile8.mark!="empty") {
+        gameOver = true;
+        alert("No winners :(");
+    }
     else {
         gameOver = false;
     }
