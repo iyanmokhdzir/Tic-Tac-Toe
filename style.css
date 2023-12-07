@@ -12,22 +12,26 @@ header {
 }
 
 #board {
-    height: 455px;
-    width: 455px;
+    height: 545;
+    width: 545px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
 }
 
-#board * {
-    height: 150px;
-    width: 150px;
+#board div {
+    height: 180px;
+    width: 180px;
     border: 1px solid white;
     background: rgba(255,255,255,0.1);
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #board div img {
     width: 150px;
     height: 150px;
+
 }

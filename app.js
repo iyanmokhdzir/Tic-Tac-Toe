@@ -87,81 +87,83 @@ function gameWinner() {
     let tile7 = document.getElementById(7);
     let tile8 = document.getElementById(8);
 
+    let winnerElement = document.getElementById("winner");
+
     //0,1,2
     if (tile0.mark == "x" && tile1.mark == "x" && tile2.mark == "x") {
-        alert("Congratulations! You win!");
         gameOver = true;
+        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
     }
     else if (tile0.mark == "o" && tile1.mark == "o" && tile2.mark == "o") {
         gameOver = true;
-        alert("Boohoo! You lose!");
+        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
     }
     //0,3,6
     else if (tile0.mark == "x" && tile3.mark == "x" && tile6.mark == "x") {
         gameOver = true;
-        alert("Congratulations! You win!");
+        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
     }
     else if (tile0.mark == "o" && tile3.mark == "o" && tile6.mark == "o") {
         gameOver = true;
-        alert("Boohoo! You lose!");
+        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
     }
     //0,4,8
     else if (tile0.mark == "x" && tile4.mark == "x" && tile8.mark == "x") {
         gameOver = true;
-        alert("Congratulations! You win!");
+        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
     }
     else if (tile0.mark == "o" && tile4.mark == "o" && tile8.mark == "o") {
         gameOver = true;
-        alert("Boohoo! You lose!");
+        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
     }
     //1,4,7
     else if (tile1.mark == "x" && tile4.mark == "x" && tile7.mark == "x") {
         gameOver = true;
-        alert("Congratulations! You win!");
+        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
     }
     else if (tile1.mark == "o" && tile4.mark == "o" && tile7.mark == "o") {
         gameOver = true;
-        alert("Boohoo! You lose!");
+        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
     }
     //2,5,8
     else if (tile2.mark == "x" && tile5.mark == "x" && tile8.mark == "x") {
         gameOver = true;
-        alert("Congratulations! You win!");
+        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
     }
     else if (tile2.mark == "o" && tile5.mark == "o" && tile8.mark == "o") {
         gameOver = true;
-        alert("Boohoo! You lose!");
+        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
     }
     //2,4,6
     else if (tile2.mark == "x" && tile4.mark == "x" && tile6.mark == "x") {
         gameOver = true;
-        alert("Congratulations! You win!");
+        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
     }
     else if (tile2.mark == "o" && tile4.mark == "o" && tile6.mark == "o") {
         gameOver = true;
-        alert("Boohoo! You lose!");
+        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
     }
     //3,4,5
     else if (tile3.mark == "x" && tile4.mark == "x" && tile5.mark == "x") {
         gameOver = true;
-        alert("Congratulations! You win!");
+        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
     }
     else if (tile3.mark == "o" && tile4.mark == "o" && tile5.mark == "o") {
         gameOver = true;
-        alert("Boohoo! You lose!");
+        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
     }
     //6,7,8
     else if (tile6.mark == "x" && tile7.mark == "x" && tile8.mark == "x") {
         gameOver = true;
-        alert("Congratulations! You win!");
+        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
     }
     else if (tile6.mark == "o" && tile7.mark == "o" && tile8.mark == "o") {
         gameOver = true;
-        alert("Boohoo! You lose!");
+        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
     }
     else if (tile0.mark!="empty" && tile1.mark!="empty" && tile2.mark!="empty" && tile3.mark!="empty" && tile4.mark!="empty" && tile5.mark!="empty" && tile6.mark!="empty" && tile7.mark!="empty" && tile8.mark!="empty") {
         gameOver = true;
-        alert("No winners :(");
+        winnerElement.innerHTML = "NO WINNERS :("
     }
     else {
         gameOver = false;
