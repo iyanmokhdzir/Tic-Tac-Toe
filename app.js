@@ -1,5 +1,6 @@
 let gameTurn;
 let gameOver = false;
+let oMarkingInterval;
 
 window.onload = function () {
     setupGame();
@@ -29,9 +30,10 @@ function gameStart() {
         this.appendChild(x);
         this.isClicked = true;
         this.mark = "x";
+
         gameWinner();
         gameTurn = "bot";
-        oMarking();
+        oMarkingInterval = setInterval(oMarking, 1000);
     }
     else if (this.isClicked && gameTurn == "user") {
         alert("The selected tile is occupied. Please choose another tile.")
@@ -50,6 +52,8 @@ function oMarking() {
     if (gameOver) {
         return;
     }
+
+    clearInterval(oMarkingInterval);
 
     let randomGrid = getRandomGrid();
 
@@ -89,71 +93,71 @@ function gameWinner() {
         gameOver = true;
     }
     else if (tile0.mark == "o" && tile1.mark == "o" && tile2.mark == "o") {
-        alert("Boohoo! You lose!");
         gameOver = true;
+        alert("Boohoo! You lose!");
     }
     //0,3,6
     else if (tile0.mark == "x" && tile3.mark == "x" && tile6.mark == "x") {
-        alert("Congratulations! You win!");
         gameOver = true;
+        alert("Congratulations! You win!");
     }
     else if (tile0.mark == "o" && tile3.mark == "o" && tile6.mark == "o") {
-        alert("Boohoo! You lose!");
         gameOver = true;
+        alert("Boohoo! You lose!");
     }
     //0,4,8
     else if (tile0.mark == "x" && tile4.mark == "x" && tile8.mark == "x") {
-        alert("Congratulations! You win!");
         gameOver = true;
+        alert("Congratulations! You win!");
     }
     else if (tile0.mark == "o" && tile4.mark == "o" && tile8.mark == "o") {
-        alert("Boohoo! You lose!");
         gameOver = true;
+        alert("Boohoo! You lose!");
     }
     //1,4,7
     else if (tile1.mark == "x" && tile4.mark == "x" && tile7.mark == "x") {
-        alert("Congratulations! You win!");
         gameOver = true;
+        alert("Congratulations! You win!");
     }
     else if (tile1.mark == "o" && tile4.mark == "o" && tile7.mark == "o") {
-        alert("Boohoo! You lose!");
         gameOver = true;
+        alert("Boohoo! You lose!");
     }
     //2,5,8
     else if (tile2.mark == "x" && tile5.mark == "x" && tile8.mark == "x") {
-        alert("Congratulations! You win!");
         gameOver = true;
+        alert("Congratulations! You win!");
     }
     else if (tile2.mark == "o" && tile5.mark == "o" && tile8.mark == "o") {
-        alert("Boohoo! You lose!");
         gameOver = true;
+        alert("Boohoo! You lose!");
     }
     //2,4,6
     else if (tile2.mark == "x" && tile4.mark == "x" && tile6.mark == "x") {
-        alert("Congratulations! You win!");
         gameOver = true;
+        alert("Congratulations! You win!");
     }
     else if (tile2.mark == "o" && tile4.mark == "o" && tile6.mark == "o") {
-        alert("Boohoo! You lose!");
         gameOver = true;
+        alert("Boohoo! You lose!");
     }
     //3,4,5
     else if (tile3.mark == "x" && tile4.mark == "x" && tile5.mark == "x") {
-        alert("Congratulations! You win!");
         gameOver = true;
+        alert("Congratulations! You win!");
     }
     else if (tile3.mark == "o" && tile4.mark == "o" && tile5.mark == "o") {
-        alert("Boohoo! You lose!");
         gameOver = true;
+        alert("Boohoo! You lose!");
     }
     //6,7,8
     else if (tile6.mark == "x" && tile7.mark == "x" && tile8.mark == "x") {
-        alert("Congratulations! You win!");
         gameOver = true;
+        alert("Congratulations! You win!");
     }
     else if (tile6.mark == "o" && tile7.mark == "o" && tile8.mark == "o") {
-        alert("Boohoo! You lose!");
         gameOver = true;
+        alert("Boohoo! You lose!");
     }
     else {
         gameOver = false;
