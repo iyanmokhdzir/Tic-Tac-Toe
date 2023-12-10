@@ -1,3 +1,12 @@
+:root {
+    --board-height: calc(100vh - 170px);
+    --board-width: var(--board-height);
+    --grid-height: calc((var(--board-height) - 5px) / 3);
+    --grid-width: var(--grid-height);
+    --marking-height: calc(var(--grid-height) - 15px);
+    --marking-width: var(--marking-height);
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -12,26 +21,28 @@ header {
 }
 
 #board {
-    height: 545;
-    width: 545px;
+    height: var(--board-height);
+    width: var(--board-width);
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    box-shadow: 2px 0px 8px 1px rgba(0,0,0,0.3);
+    border-radius: 10px;
 }
 
 #board div {
-    height: 180px;
-    width: 180px;
+    height: var(--grid-height);
+    width: var(--grid-width);
     border: 1px solid white;
     background: rgba(255,255,255,0.1);
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
 }
 
 #board div img {
-    width: 150px;
-    height: 150px;
-
+    height: var(--marking-height);
+    width: var(--marking-width);
 }
