@@ -15,6 +15,8 @@
     --min-board-height: 305px;
     --min-grid-width: 100px;
     --min-grid-height: 100px;
+    --min-popup-width: calc(var(--min-board-width) - 50px);
+    --min-popup-height: var(--min-grid-height);
 }
 
 html {
@@ -25,11 +27,10 @@ html {
     font-family: 'Poppins', sans-serif;
 }
 
-header {
+h1 {
     color: antiquewhite;
-    margin: 0 auto;
+    margin: 5vmin auto;
     text-align: center;
-    font-size: 3vh;
 }
 
 #board {
@@ -67,6 +68,8 @@ header {
 #popup {
     width: var(--popup-width);
     height: var(--popup-height);
+    min-width: var(--min-popup-width);
+    min-height: var(--min-popup-height);
     background-color: antiquewhite;
     position: fixed;
     left: calc(50% - (var(--popup-width)/2));
