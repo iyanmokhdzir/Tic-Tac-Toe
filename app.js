@@ -1,21 +1,31 @@
 let gameTurn;
 let gameOver = false;
 let oMarkingInterval;
+let popupElement = document.getElementById("popup");
 
 window.onload = function () {
-    setupGame();
+    setupGrid();
+    document.getElementById("ok-button").addEventListener("click", addEventListenerToGrid);
 }
 
-function setupGame() {
+function setupGrid() {
     for (let i = 0; i < 9; i++) {
         const grid = document.createElement("div");
         grid.id = i.toString();
+        document.getElementById("board").appendChild(grid);        
+    }    
+}
+
+function addEventListenerToGrid() {
+    popupElement.style.display = "none";
+
+    for (let i = 0; i < 9; i++) {
+        let grid = document.getElementById(i);
         grid.addEventListener("click", gameStart);
-        document.getElementById("board").appendChild(grid);
         grid.isClicked = false;
         grid.mark = "empty";
     }
-    gameTurn = "user";
+    gameTurn = "user";    
 }
 
 function gameStart() {
@@ -91,7 +101,7 @@ function gameWinner() {
 
     //0,1,2
     if (tile0.mark == "x" && tile1.mark == "x" && tile2.mark == "x") {
-        gameOver = true;
+        gameOver = true;             
         winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
     }
     else if (tile0.mark == "o" && tile1.mark == "o" && tile2.mark == "o") {
