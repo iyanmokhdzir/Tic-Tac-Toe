@@ -78,7 +78,7 @@ header {
     color: #000B00;
 }
 
-#ok-button {
+#ok-button, #newGame-button {
     height: var(--popup-button-height);
     width: var(--popup-button-width);
     background-color:#000B00;
@@ -91,6 +91,6 @@ header {
     align-items: center;
 }
 
-#ok-button:hover {
+#ok-button:hover, #newGame-button:hover {
     cursor: pointer;
 }

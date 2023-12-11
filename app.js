@@ -2,9 +2,21 @@ let gameTurn;
 let gameOver = false;
 let oMarkingInterval;
 
+//helper functions
+function reloadPage() {
+    location.reload();
+}
+
+function getRandomGrid() {
+    let randomGrid = Math.floor(Math.random() * 9);
+    return randomGrid.toString();
+}
+
+//
 window.onload = function () {
     setupGrid();
     document.getElementById("ok-button").addEventListener("click", addEventListenerToGrid);
+    document.getElementById("newGame-button").addEventListener("click", reloadPage);
 }
 
 function setupGrid() {
@@ -52,11 +64,6 @@ function gameStart() {
     }
 }
 
-function getRandomGrid() {
-    let randomGrid = Math.floor(Math.random() * 9);
-    return randomGrid.toString();
-}
-
 function oMarking() {
     if (gameOver) {
         return;
@@ -96,86 +103,120 @@ function gameWinner() {
     let tile7 = document.getElementById(7);
     let tile8 = document.getElementById(8);
 
-    let winnerElement = document.getElementById("winner");
+    let popupElement = document.getElementById("popup");
+
+    let winner = "";
 
     //0,1,2
     if (tile0.mark == "x" && tile1.mark == "x" && tile2.mark == "x") {
-        gameOver = true;             
-        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
+        gameOver = true;
+        winner = "user"; 
+        displayWinnerPopup(winner);       
     }
     else if (tile0.mark == "o" && tile1.mark == "o" && tile2.mark == "o") {
         gameOver = true;
-        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
+        winner = "bot";
+        displayWinnerPopup(winner);
     }
     //0,3,6
     else if (tile0.mark == "x" && tile3.mark == "x" && tile6.mark == "x") {
         gameOver = true;
-        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
+        winner = "user";
+        displayWinnerPopup(winner); 
     }
     else if (tile0.mark == "o" && tile3.mark == "o" && tile6.mark == "o") {
         gameOver = true;
-        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
+        winner = "bot";
+        displayWinnerPopup(winner);
     }
     //0,4,8
     else if (tile0.mark == "x" && tile4.mark == "x" && tile8.mark == "x") {
         gameOver = true;
-        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
+        winner = "user";
+        displayWinnerPopup(winner); 
     }
     else if (tile0.mark == "o" && tile4.mark == "o" && tile8.mark == "o") {
         gameOver = true;
-        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
+        winner = "bot";
+        displayWinnerPopup(winner);
     }
     //1,4,7
     else if (tile1.mark == "x" && tile4.mark == "x" && tile7.mark == "x") {
         gameOver = true;
-        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
+        winner = "user";
+        displayWinnerPopup(winner); 
     }
     else if (tile1.mark == "o" && tile4.mark == "o" && tile7.mark == "o") {
         gameOver = true;
-        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
+        winner = "bot";
+        displayWinnerPopup(winner);
     }
     //2,5,8
     else if (tile2.mark == "x" && tile5.mark == "x" && tile8.mark == "x") {
         gameOver = true;
-        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
+        winner = "user";
+        displayWinnerPopup(winner); 
     }
     else if (tile2.mark == "o" && tile5.mark == "o" && tile8.mark == "o") {
         gameOver = true;
-        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
+        winner = "bot";
+        displayWinnerPopup(winner);
     }
     //2,4,6
     else if (tile2.mark == "x" && tile4.mark == "x" && tile6.mark == "x") {
         gameOver = true;
-        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
+        winner = "user";
+        displayWinnerPopup(winner); 
     }
     else if (tile2.mark == "o" && tile4.mark == "o" && tile6.mark == "o") {
         gameOver = true;
-        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
+        winner = "bot";
+        displayWinnerPopup(winner);
     }
     //3,4,5
     else if (tile3.mark == "x" && tile4.mark == "x" && tile5.mark == "x") {
         gameOver = true;
-        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
+        winner = "user";
+        displayWinnerPopup(winner); 
     }
     else if (tile3.mark == "o" && tile4.mark == "o" && tile5.mark == "o") {
         gameOver = true;
-        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
+        winner = "bot";
+        displayWinnerPopup(winner);
     }
     //6,7,8
     else if (tile6.mark == "x" && tile7.mark == "x" && tile8.mark == "x") {
         gameOver = true;
-        winnerElement.innerHTML = "CONGRATULATIONS! YOU WIN!"
+        winner = "user";
+        displayWinnerPopup(winner); 
     }
     else if (tile6.mark == "o" && tile7.mark == "o" && tile8.mark == "o") {
         gameOver = true;
-        winnerElement.innerHTML = "BOOHOO! YOU LOSE!"
+        winner = "bot";
+        displayWinnerPopup(winner);
     }
     else if (tile0.mark!="empty" && tile1.mark!="empty" && tile2.mark!="empty" && tile3.mark!="empty" && tile4.mark!="empty" && tile5.mark!="empty" && tile6.mark!="empty" && tile7.mark!="empty" && tile8.mark!="empty") {
         gameOver = true;
-        winnerElement.innerHTML = "NO WINNERS :("
+        winner = "none";
+        displayWinnerPopup(winner);
     }
     else {
         gameOver = false;
+    }
+
+    function displayWinnerPopup(winner) {
+        if (winner == "user") {            
+            popupElement.innerHTML = "CONGRATULATIONS, YOU WIN!";
+            popupElement.style.display = "flex";   
+        }
+        else if (winner == "bot") {
+            popupElement.innerHTML = "SORRY, YOU LOSE.";
+            popupElement.style.display = "flex";
+        }
+        else {
+            popupElement.innerHTML = "NO WINNERS.";
+            popupElement.style.display = "flex";
+        }
     }
 
     return gameOver;
