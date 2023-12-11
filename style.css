@@ -1,5 +1,5 @@
 :root {
-    --board-height: calc(100vh - 170px);
+    --board-height: calc(100vmin - 170px);
     --board-width: var(--board-height);
     --grid-height: calc((var(--board-height) - 10px) / 3);
     --grid-width: var(--grid-height);
@@ -11,6 +11,10 @@
     --box-shadow: 2px 0px 8px 1px rgba(0,0,0,0.3);
     --popup-button-height: 20%;
     --popup-button-width: 35%;
+    --min-board-width: 305px;
+    --min-board-height: 305px;
+    --min-grid-width: 100px;
+    --min-grid-height: 100px;
 }
 
 html {
@@ -36,6 +40,8 @@ header {
     flex-wrap: wrap;
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
+    min-width: var(--min-board-width);
+    min-height: var(--min-board-height);
 }
 
 #board div {
@@ -49,6 +55,8 @@ header {
     align-items: center;
     border-radius: 10px;
     cursor: pointer;
+    min-width: var(--min-grid-width);
+    min-height: var(--min-grid-height);
 }
 
 #board div img {
