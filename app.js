@@ -1,7 +1,6 @@
 let gameTurn;
 let gameOver = false;
 let oMarkingInterval;
-let popupElement = document.getElementById("popup");
 
 window.onload = function () {
     setupGrid();
@@ -17,7 +16,7 @@ function setupGrid() {
 }
 
 function addEventListenerToGrid() {
-    popupElement.style.display = "none";
+    document.getElementById("popup").style.display = "none";
 
     for (let i = 0; i < 9; i++) {
         let grid = document.getElementById(i);
