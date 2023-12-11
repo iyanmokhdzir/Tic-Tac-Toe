@@ -1,7 +1,7 @@
 :root {
     --board-height: calc(100vh - 170px);
     --board-width: var(--board-height);
-    --grid-height: calc((var(--board-height) - 5px) / 3);
+    --grid-height: calc((var(--board-height) - 10px) / 3);
     --grid-width: var(--grid-height);
     --marking-height: calc(var(--grid-height) - 15px);
     --marking-width: var(--marking-height);
