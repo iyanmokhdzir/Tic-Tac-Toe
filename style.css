@@ -9,8 +9,8 @@
     --popup-height: calc(var(--board-height)/2);
     --border-radius: 10px;
     --box-shadow: 2px 0px 8px 1px rgba(0,0,0,0.3);
-    --popup-button-height: 15%;
-    --popup-button-width: 25%;
+    --popup-button-height: 20%;
+    --popup-button-width: 35%;
 }
 
 html {
@@ -69,7 +69,7 @@ header {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    font-size: calc(var(--popup-button-height) * 10);
+    font-size: 2.5vmin;
 }
 
 #popup-text {
@@ -93,4 +93,8 @@ header {
 
 #ok-button:hover, #newGame-button:hover {
     cursor: pointer;
+}
+
+#newGame-button {
+    display: none;
 }
