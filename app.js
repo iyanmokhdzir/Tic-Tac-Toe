@@ -13,7 +13,6 @@ function getRandomGrid() {
   return randomGrid.toString();
 }
 
-
 window.onload = function () {
   setupGrid();
   document
@@ -67,12 +66,15 @@ function gameStart() {
     gameTurn = "bot";
     oMarkingInterval = setInterval(oMarking, 1000);
   } else if (this.isClicked && gameTurn == "user") {
+    clearInterval(oMarkingInterval);
     popupElement.style.display = "flex";
-    popupText.innerHTML = "The selected tile is occupied. Please choose another tile.";
+    popupText.innerHTML =
+      "The selected tile is occupied. Please choose another tile.";
     okButton.style.display = "none";
     closeButton.style.display = "flex";
     closeButton.addEventListener("click", closePopup);
   } else {
+    clearInterval(oMarkingInterval);
     popupElement.style.display = "flex";
     popupText.innerHTML = "Please wait for your turn.";
     okButton.style.display = "none";
@@ -83,6 +85,7 @@ function gameStart() {
   //A helper function to close the popup if user accidentally clicks on an occupied tile or did not wait for their turn.
   function closePopup() {
     popupElement.style.display = "none";
+    oMarkingInterval = setInterval(oMarking, 1000);
   }
 }
 
@@ -132,81 +135,81 @@ function gameWinner() {
   if (tile0.mark == "x" && tile1.mark == "x" && tile2.mark == "x") {
     gameOver = true;
     winner = "user";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   } else if (tile0.mark == "o" && tile1.mark == "o" && tile2.mark == "o") {
     gameOver = true;
     winner = "bot";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   }
   //0,3,6
   else if (tile0.mark == "x" && tile3.mark == "x" && tile6.mark == "x") {
     gameOver = true;
     winner = "user";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   } else if (tile0.mark == "o" && tile3.mark == "o" && tile6.mark == "o") {
     gameOver = true;
     winner = "bot";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   }
   //0,4,8
   else if (tile0.mark == "x" && tile4.mark == "x" && tile8.mark == "x") {
     gameOver = true;
     winner = "user";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   } else if (tile0.mark == "o" && tile4.mark == "o" && tile8.mark == "o") {
     gameOver = true;
     winner = "bot";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   }
   //1,4,7
   else if (tile1.mark == "x" && tile4.mark == "x" && tile7.mark == "x") {
     gameOver = true;
     winner = "user";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   } else if (tile1.mark == "o" && tile4.mark == "o" && tile7.mark == "o") {
     gameOver = true;
     winner = "bot";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   }
   //2,5,8
   else if (tile2.mark == "x" && tile5.mark == "x" && tile8.mark == "x") {
     gameOver = true;
     winner = "user";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   } else if (tile2.mark == "o" && tile5.mark == "o" && tile8.mark == "o") {
     gameOver = true;
     winner = "bot";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   }
   //2,4,6
   else if (tile2.mark == "x" && tile4.mark == "x" && tile6.mark == "x") {
     gameOver = true;
     winner = "user";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   } else if (tile2.mark == "o" && tile4.mark == "o" && tile6.mark == "o") {
     gameOver = true;
     winner = "bot";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   }
   //3,4,5
   else if (tile3.mark == "x" && tile4.mark == "x" && tile5.mark == "x") {
     gameOver = true;
     winner = "user";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   } else if (tile3.mark == "o" && tile4.mark == "o" && tile5.mark == "o") {
     gameOver = true;
     winner = "bot";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   }
   //6,7,8
   else if (tile6.mark == "x" && tile7.mark == "x" && tile8.mark == "x") {
     gameOver = true;
     winner = "user";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   } else if (tile6.mark == "o" && tile7.mark == "o" && tile8.mark == "o") {
     gameOver = true;
     winner = "bot";
-    winnerPopup(winner);
+    setInterval(winnerPopup,500,winner);
   } else if (
     tile0.mark != "empty" &&
     tile1.mark != "empty" &&
@@ -220,7 +223,7 @@ function gameWinner() {
   ) {
     gameOver = true;
     winner = "none";
-    winnerPopup(winner);
+    setInterval(winnerPopup,800,winner);
   } else {
     gameOver = false;
   }
@@ -256,6 +259,5 @@ function gameWinner() {
       newGameButton.addEventListener("click", reloadPage);
     }
   }
-
   return gameOver;
 }
