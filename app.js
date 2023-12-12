@@ -147,85 +147,134 @@ function gameWinner() {
 
   let winner = "";
   let winInterval;
+  let winningTilesColor = "rgba(214, 169, 135, 1.0)";
 
   //0,1,2
   if (tile0.mark == "x" && tile1.mark == "x" && tile2.mark == "x") {
     gameOver = true;
     winner = "user";
+    tile0.style.background = winningTilesColor;
+    tile1.style.background = winningTilesColor;
+    tile2.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   } else if (tile0.mark == "o" && tile1.mark == "o" && tile2.mark == "o") {
     gameOver = true;
     winner = "bot";
+    tile0.style.background = winningTilesColor;
+    tile1.style.background = winningTilesColor;
+    tile2.style.background = winningTilesColor;
     wwinInterval = setInterval(winnerPopup,500,winner);
   }
   //0,3,6
   else if (tile0.mark == "x" && tile3.mark == "x" && tile6.mark == "x") {
     gameOver = true;
     winner = "user";
+    tile0.style.background = winningTilesColor;
+    tile3.style.background = winningTilesColor;
+    tile6.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   } else if (tile0.mark == "o" && tile3.mark == "o" && tile6.mark == "o") {
     gameOver = true;
     winner = "bot";
+    tile0.style.background = winningTilesColor;
+    tile3.style.background = winningTilesColor;
+    tile6.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   }
   //0,4,8
   else if (tile0.mark == "x" && tile4.mark == "x" && tile8.mark == "x") {
     gameOver = true;
     winner = "user";
+    tile0.style.background = winningTilesColor;
+    tile4.style.background = winningTilesColor;
+    tile8.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   } else if (tile0.mark == "o" && tile4.mark == "o" && tile8.mark == "o") {
     gameOver = true;
     winner = "bot";
+    tile0.style.background = winningTilesColor;
+    tile4.style.background = winningTilesColor;
+    tile8.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   }
   //1,4,7
   else if (tile1.mark == "x" && tile4.mark == "x" && tile7.mark == "x") {
     gameOver = true;
     winner = "user";
+    tile1.style.background = winningTilesColor;
+    tile4.style.background = winningTilesColor;
+    tile7.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   } else if (tile1.mark == "o" && tile4.mark == "o" && tile7.mark == "o") {
     gameOver = true;
     winner = "bot";
+    tile1.style.background = winningTilesColor;
+    tile4.style.background = winningTilesColor;
+    tile7.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   }
   //2,5,8
   else if (tile2.mark == "x" && tile5.mark == "x" && tile8.mark == "x") {
     gameOver = true;
     winner = "user";
+    tile2.style.background = winningTilesColor;
+    tile5.style.background = winningTilesColor;
+    tile8.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   } else if (tile2.mark == "o" && tile5.mark == "o" && tile8.mark == "o") {
     gameOver = true;
     winner = "bot";
+    tile2.style.background = winningTilesColor;
+    tile5.style.background = winningTilesColor;
+    tile8.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   }
   //2,4,6
   else if (tile2.mark == "x" && tile4.mark == "x" && tile6.mark == "x") {
     gameOver = true;
     winner = "user";
+    tile2.style.background = winningTilesColor;
+    tile4.style.background = winningTilesColor;
+    tile6.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   } else if (tile2.mark == "o" && tile4.mark == "o" && tile6.mark == "o") {
     gameOver = true;
     winner = "bot";
+    tile2.style.background = winningTilesColor;
+    tile4.style.background = winningTilesColor;
+    tile6.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   }
   //3,4,5
   else if (tile3.mark == "x" && tile4.mark == "x" && tile5.mark == "x") {
     gameOver = true;
     winner = "user";
+    tile3.style.background = winningTilesColor;
+    tile4.style.background = winningTilesColor;
+    tile5.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   } else if (tile3.mark == "o" && tile4.mark == "o" && tile5.mark == "o") {
     gameOver = true;
     winner = "bot";
+    tile3.style.background = winningTilesColor;
+    tile4.style.background = winningTilesColor;
+    tile5.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   }
   //6,7,8
   else if (tile6.mark == "x" && tile7.mark == "x" && tile8.mark == "x") {
     gameOver = true;
     winner = "user";
+    tile6.style.background = winningTilesColor;
+    tile7.style.background = winningTilesColor;
+    tile8.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   } else if (tile6.mark == "o" && tile7.mark == "o" && tile8.mark == "o") {
     gameOver = true;
     winner = "bot";
+    tile6.style.background = winningTilesColor;
+    tile7.style.background = winningTilesColor;
+    tile8.style.background = winningTilesColor;
     winInterval = setInterval(winnerPopup,500,winner);
   } else if (
     tile0.mark != "empty" &&
