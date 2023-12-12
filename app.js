@@ -2,17 +2,18 @@ let gameTurn;
 let gameOver = false;
 let oMarkingInterval;
 
-//helper functions
+//helper function - reloads the page when user wants to start a new game.
 function reloadPage() {
   location.reload();
 }
 
+//helper function - provides a random number between 0 - 9 to populate the bot's move onto the grid.
 function getRandomGrid() {
   let randomGrid = Math.floor(Math.random() * 9);
   return randomGrid.toString();
 }
 
-//
+
 window.onload = function () {
   setupGrid();
   document
@@ -20,6 +21,7 @@ window.onload = function () {
     .addEventListener("click", addEventListenerToGrid);
 };
 
+//A function to set up the grid/tiles
 function setupGrid() {
   for (let i = 0; i < 9; i++) {
     const grid = document.createElement("div");
@@ -28,6 +30,7 @@ function setupGrid() {
   }
 }
 
+//A function that allows the grids/tiles to be clickable after the popup closes.
 function addEventListenerToGrid() {
   document.getElementById("popup").style.display = "none";
   document.getElementById("board-wrapper").style.filter = "blur(0)";
@@ -41,6 +44,7 @@ function addEventListenerToGrid() {
   gameTurn = "user";
 }
 
+//A function that starts the game once user clicks on a tile.
 function gameStart() {
   if (gameOver) {
     return;
@@ -76,11 +80,13 @@ function gameStart() {
     closeButton.addEventListener("click", closePopup);
   }
 
+  //A helper function to close the popup if user accidentally clicks on an occupied tile or did not wait for their turn.
   function closePopup() {
     popupElement.style.display = "none";
   }
 }
 
+//A function to mark the bot's move.
 function oMarking() {
   if (gameOver) {
     return;
@@ -108,6 +114,7 @@ function oMarking() {
   }
 }
 
+//A function to get the game winner.
 function gameWinner() {
   let tile0 = document.getElementById(0);
   let tile1 = document.getElementById(1);
@@ -218,6 +225,7 @@ function gameWinner() {
     gameOver = false;
   }
 
+  //A function to display a popup message when the game completes.
   function winnerPopup(winner) {
     let popup = document.getElementById("popup");
     let popupText = document.getElementById("popup-text");
