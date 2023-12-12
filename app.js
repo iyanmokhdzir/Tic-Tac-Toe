@@ -49,6 +49,11 @@ function gameStart() {
   let x = document.createElement("img");
   x.src = "./X.png";
 
+  let popupElement = document.getElementById("popup");
+  let popupText = document.getElementById("popup-text");
+  let okButton = document.getElementById("ok-button");
+  let closeButton = document.getElementById("close-button");
+
   if (!this.isClicked && gameTurn == "user") {
     this.appendChild(x);
     this.isClicked = true;
@@ -58,9 +63,21 @@ function gameStart() {
     gameTurn = "bot";
     oMarkingInterval = setInterval(oMarking, 1000);
   } else if (this.isClicked && gameTurn == "user") {
-    alert("The selected tile is occupied. Please choose another tile.");
+    popupElement.style.display = "flex";
+    popupText.innerHTML = "The selected tile is occupied. Please choose another tile.";
+    okButton.style.display = "none";
+    closeButton.style.display = "flex";
+    closeButton.addEventListener("click", closePopup);
   } else {
-    alert("Please wait for your turn.");
+    popupElement.style.display = "flex";
+    popupText.innerHTML = "Please wait for your turn.";
+    okButton.style.display = "none";
+    closeButton.style.display = "flex";
+    closeButton.addEventListener("click", closePopup);
+  }
+
+  function closePopup() {
+    popupElement.style.display = "none";
   }
 }
 
@@ -206,12 +223,14 @@ function gameWinner() {
     let popupText = document.getElementById("popup-text");
     let okButton = document.getElementById("ok-button");
     let newGameButton = document.getElementById("newGame-button");
+    let closeButton = document.getElementById("close-button");
 
     if (winner == "user") {
       popup.style.display = "flex";
       popupText.innerHTML = "Congratulations, you win!";
       popupText.style.fontSize = "3vmin";
       okButton.style.display = "none";
+      closeButton.style.display = "none";
       newGameButton.style.display = "flex";
       newGameButton.addEventListener("click", reloadPage);
     } else if (winner == "bot") {
@@ -219,6 +238,7 @@ function gameWinner() {
       popupText.innerHTML = "Sorry, you lose!";
       popupText.style.fontSize = "3vmin";
       okButton.style.display = "none";
+      closeButton.style.display = "none";
       newGameButton.style.display = "flex";
       newGameButton.addEventListener("click", reloadPage);
     } else {
@@ -226,6 +246,7 @@ function gameWinner() {
       popupText.innerHTML = "No winners :(";
       popupText.style.fontSize = "3vmin";
       okButton.style.display = "none";
+      closeButton.style.display = "none";
       newGameButton.style.display = "flex";
       newGameButton.addEventListener("click", reloadPage);
     }

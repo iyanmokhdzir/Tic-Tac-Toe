@@ -120,7 +120,7 @@ h1 {
 }
 
 #ok-button,
-#newGame-button {
+#newGame-button, #close-button {
     height: var(--popup-button-height);
     width: var(--popup-button-width);
     background-color: #000B00;
@@ -135,11 +135,11 @@ h1 {
 }
 
 #ok-button:hover,
-#newGame-button:hover {
+#newGame-button:hover, #close-button:hover {
     cursor: pointer;
 }
 
-#newGame-button {
+#newGame-button, #close-button {
     display: none;
 }
 
