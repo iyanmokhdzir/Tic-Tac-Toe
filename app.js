@@ -228,7 +228,6 @@ function gameWinner() {
     if (winner == "user") {
       popup.style.display = "flex";
       popupText.innerHTML = "Congratulations, you win!";
-      popupText.style.fontSize = "3vmin";
       okButton.style.display = "none";
       closeButton.style.display = "none";
       newGameButton.style.display = "flex";
@@ -236,7 +235,6 @@ function gameWinner() {
     } else if (winner == "bot") {
       popup.style.display = "flex";
       popupText.innerHTML = "Sorry, you lose!";
-      popupText.style.fontSize = "3vmin";
       okButton.style.display = "none";
       closeButton.style.display = "none";
       newGameButton.style.display = "flex";
@@ -244,7 +242,6 @@ function gameWinner() {
     } else {
       popup.style.display = "flex";
       popupText.innerHTML = "No winners :(";
-      popupText.style.fontSize = "3vmin";
       okButton.style.display = "none";
       closeButton.style.display = "none";
       newGameButton.style.display = "flex";
