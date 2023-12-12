@@ -137,6 +137,7 @@ h1 {
 #ok-button:hover,
 #newGame-button:hover, #close-button:hover {
     cursor: pointer;
+    background-color: #44617B;
 }
 
 #newGame-button, #close-button {
