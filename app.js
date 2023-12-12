@@ -30,6 +30,7 @@ function setupGrid() {
 
 function addEventListenerToGrid() {
   document.getElementById("popup").style.display = "none";
+  document.getElementById("board-wrapper").style.filter = "blur(0)";
 
   for (let i = 0; i < 9; i++) {
     let grid = document.getElementById(i);
@@ -208,19 +209,22 @@ function gameWinner() {
 
     if (winner == "user") {
       popup.style.display = "flex";
-      popupText.innerHTML = "CONGRATULATIONS, YOU WIN!";
+      popupText.innerHTML = "Congratulations, you win!";
+      popupText.style.fontSize = "3vmin";
       okButton.style.display = "none";
       newGameButton.style.display = "flex";
       newGameButton.addEventListener("click", reloadPage);
     } else if (winner == "bot") {
       popup.style.display = "flex";
-      popupText.innerHTML = "SORRY, YOU LOSE!";
+      popupText.innerHTML = "Sorry, you lose!";
+      popupText.style.fontSize = "3vmin";
       okButton.style.display = "none";
       newGameButton.style.display = "flex";
       newGameButton.addEventListener("click", reloadPage);
     } else {
       popup.style.display = "flex";
-      popupText.innerHTML = "NO WINNERS.";
+      popupText.innerHTML = "No winners :(";
+      popupText.style.fontSize = "3vmin";
       okButton.style.display = "none";
       newGameButton.style.display = "flex";
       newGameButton.addEventListener("click", reloadPage);

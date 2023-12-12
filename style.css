@@ -8,48 +8,60 @@
     --popup-width: calc(var(--board-width) - 50px);
     --popup-height: calc(var(--board-height)/2);
     --border-radius: 10px;
-    --box-shadow: 2px 0px 8px 1px rgba(0,0,0,0.3);
-    --popup-button-height: 20%;
-    --popup-button-width: 35%;
-    --min-board-width: 305px;
-    --min-board-height: 305px;
+    --box-shadow: 2px 0px 8px 1px rgba(0, 0, 0, 0.3);
+    --popup-button-height: calc(var(--popup-height) * 0.15);
+    --popup-button-width: 40%;
+    --min-board-width: 310px;
+    --min-board-height: 310px;
     --min-grid-width: 100px;
     --min-grid-height: 100px;
     --min-popup-width: calc(var(--min-board-width) - 50px);
-    --min-popup-height: var(--min-grid-height);
+    --min-popup-height: calc(var(--min-grid-height) + 50px);
+    --h1-height: 10vmin;
 }
 
-html {
+html,
+body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100svh;
     background-image: linear-gradient(#000B00, #44617B, #d6a987);
     font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+#board-wrapper {
+    filter: blur(10px);
 }
 
 h1 {
     color: antiquewhite;
-    margin: 5vmin auto;
     text-align: center;
+    margin: 1em auto;
+    padding: 0;
 }
 
 #board {
     height: var(--board-height);
     width: var(--board-width);
     margin: 0 auto;
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
     min-width: var(--min-board-width);
     min-height: var(--min-board-height);
+    position: fixed;
+    left: calc(50% - (var(--board-width)/2));
+    /*top: calc(50% - (var(--board-height)/2));*/
 }
 
 #board div {
     height: var(--grid-height);
     width: var(--grid-width);
     border: 1px solid white;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -79,33 +91,63 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    font-size: 2.5vmin;
+    font-size: 2.8vmin;
+    z-index: 1;
+}
+
+#popup-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    width: 80%;
+    padding: 0;
+    margin: 0;
 }
 
 #popup-text {
     text-align: center;
-    margin: 50px 30px 0px 30px;
     color: #000B00;
+    margin-bottom: 2em;
+    padding: 0;
 }
 
-#ok-button, #newGame-button {
+#ok-button,
+#newGame-button {
     height: var(--popup-button-height);
     width: var(--popup-button-width);
-    background-color:#000B00;
+    background-color: #000B00;
     color: antiquewhite;
     border-radius: var(--border-radius);
-    margin: 0px 30px 50px 30px;
     box-shadow: var(--box-shadow);
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-#ok-button:hover, #newGame-button:hover {
+#ok-button:hover,
+#newGame-button:hover {
     cursor: pointer;
 }
 
 #newGame-button {
     display: none;
+}
+
+@media only screen and (max-width: 500px) {
+    :root {
+        --popup-button-height: calc(var(--min-popup-height) * 0.15);
+    }
+    #board {
+        left: calc(50% - (var(--min-board-width)/2));
+        top: calc(50% - (var(--min-board-height)/2));
+    }
+
+    #popup {
+        left: calc(50% - (var(--min-popup-width)/2));
+        top: calc(50% - (var(--min-popup-height)/2));
+    }
 }
