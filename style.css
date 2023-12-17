@@ -1,5 +1,5 @@
 :root {
-    --board-height: calc(100vmin - 170px);
+    --board-height: calc(70vmin);
     --board-width: var(--board-height);
     --grid-height: calc((var(--board-height) - 10px) / 3);
     --grid-width: var(--grid-height);
